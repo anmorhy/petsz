@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymelaef.org" xmlns:sec="http://www.thymelaef.org/extras/spring-security">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>Recuperar Senha</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon/favicon.ico}">
+    
+        <!-- Fonts -->
+        <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" media="screen" th:href="@{/vendor/fontawesome-free/css/all.min.css}">
+
+        <!-- Core CSS -->
+        <link rel="stylesheet" th:href="@{/css/sb-admin-2.min.css}">
+        <link rel="stylesheet" th:href="@{/index/css/themify-icons.css}">
+        
+        <!-- Page CSS -->
+    </head>
+
+<body class="bg-gradient-sz">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <!-- Page Wrapper -->
+    <div class="container">
+        <!-- MSG ERRO -->
+        <c th:if="${msgErro != null}">
+            <div class="alert alert-danger  fade show" role="alert">
+                <strong><span th:text="${msgErro}"></span></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </c>
+        <c th:if="${msg != null}">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><span th:text="${msg}"></span></strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </button>
+            </div>
+        </c>
+        <!-- END MSG ERRO -->
+
+        <!-- CONTAINER -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-3">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-5 d-none d-lg-block bg-password-image"></div>
+                            <div class="col-lg-7">
+                                <div class="p-3"> 
+                                    <div class="text-center">
+                                        </br>
+                                            <!-- Logo -->
+                                            <div class=" justify-content-center">
+                                                <a th:href="@{/}" class="app-brand-link gap-2">
+                                                <img th:src="@{/img/adotsz-orange.png}">
+                                                </a>
+                                            </div>
+                                        </br>
+                                        <h4 class="mb-2">Esqueceu a senha? 🔒</h4>
+                                        <p class="mb-4">Digite seu e-mail e enviaremos instruções para redefinir sua senha</p>
+                                    </div>
+                                    <form class="user">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control "
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Insira seu E-mail">
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div> -->
+                                        <a href="index.html" class="btn btn-primary btn-block">
+                                            Enviar E-mail
+                                        </a>
+                                    </form>
+                                    </br>
+                                    <p class="text-center" style="height: 20px;">
+                                        <a th:href="@{/page/login}">
+                                          <span style="color:#ff4800 ;"> De volta ao Login</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                 <!-- Footer -->
+                <footer>
+                    <div class="container my-auto" style="height: 10px;">
+                        <div class="copyright text-center my-auto">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            , Adotsz <i class="ti-heart" aria-hidden="true" > | </i>All rights reserved | AM
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+            </div>   
+        </div>
+        <!-- END CONTAINER -->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <script th:src="@{/vendor/js/sb-admin-2.min.js}"></script>
+
+    <!-- Page JS -->
+    <script th:src="@{/js/page/form_recuperar.js}"></script>
+    <script th:src="@{/js/usuario/usuario.js}"></script>
+
+</body>
+
+</html>

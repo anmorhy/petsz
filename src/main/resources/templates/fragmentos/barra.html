@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymelaef.org" xmlns:sec="http://www.thymelaef.org/extras/spring-security"></html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Barra</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon/favicon.ico}">
+
+    <!-- Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" media="screen" th:href="@{/vendor/fontawesome-free/css/all.css}">
+    <link rel="stylesheet" media="screen" th:href="@{/vendor/fontawesome-free/css/v4-shims.css"> 
+    <!-- Core CSS -->
+    <link rel="stylesheet" th:href="@{/css/sb-admin-2.min.css}">
+    <link rel="stylesheet" th:href="@{/index/css/themify-icons.css}">
+    
+
+    <!-- Page CSS -->
+
+</head>
+
+<body id="page-top">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div th:fragment="navbar">
+            <ul class="navbar-nav bg-gradient-ssz sidebar sidebar-light accordion" id="accordionSidebar">
+                <!-- Sidebar - Brand -->
+                <!-- Logo -->
+                <div class="sidebar-brand d-flex align-items-center justify-content-center">
+                    <a th:href="@{/}" class="app-brand-link gap-2">
+                        <img th:src="@{/img/sz-orange.png}" style="height: 40px;">
+                    </a>
+                </div>
+                <!-- /Logo -->
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/use/dash}">
+                        <i class="fas fa-fw fa-tachometer-alt" style="color: #e74a3b;"></i>
+                        <span>Dashboard</span></a>
+                </li>
+                <!-- Divider -->
+                
+                <!-- <div class="sidebar-heading">
+                    Interface
+                </div> -->
+
+                <hr class="sidebar-divider">
+
+                <!-- Nav Item - Petsz -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser"
+                        aria-expanded="true" aria-controls="collapseUser">
+                        <i class="fas fa-fw fa-paw"></i>
+                        <span>PET</span>
+                    </a>
+                    <div id="collapseUser" class="collapse" aria-labelledby="headingUser"
+                        data-parent="#accordionSidebar"  >
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" th:href="@{/pet/listapet}">Listar Pet</a>
+                            <a class="collapse-item" th:href="@{/pet/cadpet}">Cadastrar Pet</a>
+                        </div>
+                        
+                    </div>
+                    
+                </li>
+
+                <hr class="sidebar-divider">
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAdmin"
+                        aria-expanded="true" aria-controls="collapseAdmin">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>ADMIN</span>
+                    </a>
+                    <div id="collapseAdmin" class="collapse" aria-labelledby="headingAdmin"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" th:href="@{/adm/listauser}">Listar User</a>
+                        </div>
+                    </div>
+                </li>
+
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <!-- Nav Item - Config -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfig"
+                        aria-expanded="true" aria-controls="collapseConfig">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                    <div id="collapseConfig" class="collapse" aria-labelledby="headingConfig" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" th:href="@{/use/alterar}">Alterar Dados</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <!-- Nav Item - Tables -->
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Ajuda</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class=" d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </ul>
+        </div><!-- END Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <div th:fragment="navbar2"><!-- Topbar -->
+                    <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a> -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i> 
+                        </button>
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <div class="topbar-divider d-none d-sm-block"></div>
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><span sec:authentication="name"> </span></span>
+                                    <img id="fotoUser" class="img-profile rounded-circle"
+                                   		th:src="@{/use/buscarfoto}">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" th:href="@{/use/alterar}">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Alterar Dados
+                                    </a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Footer -->
+                <div th:fragment="copyrig">
+                    <footer class=" bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                ©
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script>
+                                , Adotsz <i class="ti-heart" aria-hidden="true"> | </i>All rights reserved | AM
+                            </div>
+                        </div>
+                    </footer>
+                </div><!-- End Footer -->
+            </div> <!-- END Main Content -->         
+        </div><!-- END Content Wrapper --> 
+        
+    </div><!-- END Page Wrapper -->
+    <!-- Page Top Modal -->
+    <div th:fragment="topPageModal">
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Pronto para Sair?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Selecione "Logout" abaixo para encerrar à sua sessão atual.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- END Page Top Modal -->
+    <script th:src="@{/js/usuario/fotousuario.js}"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/vendor/js/sb-admin-2.min.js}"></script>
+    <!-- Page level plugins -->
+    <script defer  th:src="@{/vendor/fontawesome-free/js/all.js"></script>
+    <script defer  th:src="@{/vendor/fontawesome-free/js/v4-shims.js"></script>
+    
+    
+    
+
+
+
+</body>
+
+</html>

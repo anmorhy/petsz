@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymelaef.org" xmlns:sec="http://www.thymelaef.org/extras/spring-security">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Animal</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon/favicon.ico}">
+        <!-- Place favicon.ico in the root directory -->
+    
+        <!-- CSS here -->
+        <link rel="stylesheet" th:href="@{/index/css/bootstrap.min.css}"> <!-- cores aki -->
+        <link rel="stylesheet" th:href="@{/index/css/owl.carousel.min.css}">
+        <link rel="stylesheet" th:href="@{/index/css/magnific-popup.css}">
+        <link rel="stylesheet" th:href="@{/index/css/font-awesome.min.css}">
+        <link rel="stylesheet" th:href="@{/index/css/themify-icons.css}">
+        <link rel="stylesheet" th:href="@{/index/css/nice-select.css}">
+        <link rel="stylesheet" th:href="@{/index/css/flaticon.css}">
+        <link rel="stylesheet" th:href="@{/index/css/gijgo.css}">
+        <link rel="stylesheet" th:href="@{/index/css/animate.css}">
+        <link rel="stylesheet" th:href="@{/index/css/slicknav.css}">
+        <link rel="stylesheet" th:href="@{/index/css/style.css}">
+        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    </head>
+    
+    <body>
+        <meta http-equiv="refresh" content="5">
+        <!-- TIME ATT -->
+        <c th:if="${msgErro != null}">
+            <div class="alert alert-danger  fade show" role="alert">
+                <strong><span th:text="${msgErro}"></span></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </c>
+        <c th:if="${msg != null}">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><span th:text="${msg}"></span></strong> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </button>
+            </div>
+        </c>
+        <header>
+            <div class="header-area ">
+                
+                <div id="sticky-header" class="main-header-area">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3">
+                                <div class="logo">
+                                    <a th:href="@{/}">
+                                        <img th:src="@{/img/adotsz-orange.png}">
+                                         <!-- <h1>Adote <i class="ti-heart" aria-hidden="true"></i></h1> -->
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li style="color: #512513;"><a th:href="@{/}">Inicio</a></li>
+                                            <li style="color: #512513;"><a th:href="@{/page/login}">Login</a></li>
+                                            <li style="color: #512513;"><a th:href="@{/page/form}">Form</a></li>
+                                            
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="bradcam_area breadcam_bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcam_text text-center">
+                            <h3>Formulario de Adoção</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- team_area_start  -->
+        <div class="team_area">
+            <div class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-lg-6 col-md-10">
+                        <div class="section_title text-center mb-95">
+                            <h3 style="color: #512513;">Preencha</h3>
+                            <p style="color: #512513;">Prencha todos os Campos corretamente </p>
+                            <form class="user" th:action="@{/use/salvarRegistro}" method="post" th:objetct="${usuarioobj}" enctype="multipart/form-data">												
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control" 
+                                        name="nomeOng" type="text"  id="inputNome" placeholder="Digite o nome da Organização" autofocus required="required">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" 
+                                        name="respOng" type="text"  id="inputResp" placeholder="Digite o nome do Responsável" autofocus required="required" minlength="5">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control "
+                                        name="regisOng" type="text"  id="inputRegis" placeholder="Digite o CPF|CNPJ" autofocus required="required" minlength="11" maxlength= "14">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control "
+                                        name="foneOng" type="text"  id="inputFone" placeholder="Digite o Telefone" autofocus required="required" minlength="10" maxlength= "14">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                        <input class="form-control "
+                                        name="localOng" type="text" id="inputLocal" placeholder="Digite Endereço" autofocus required="required">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input class="form-control "
+                                        name="login" type="email" id="inputLogin" placeholder="Digite o E-mail" autofocus required="required">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input  class="form-control "
+                                        name="senha" type="password" id="inputSenha" placeholder="Digite a Senha" autofocus required="required" minlength="8">
+                                    </div>
+                                    <!-- <a name="usuario_role" value="2" ></a> -->
+                                </div>
+                                <div class="form-row">
+                                    <div class="text-center" type="hidden">
+                                    <label></label><input type="file" name="file" disable hidden>
+                                    </div>
+                                   </div>
+                                <button type="submit" id="btnSalvar" class="btn btn-primary btn-block" value="Salvar" >Salvar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                </div> 
+            </div>
+        </div>
+        <!-- team_area_start  -->
+        
+     
+    
+        <!-- footer_start  -->
+        <footer class="footer">
+            <div class="footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 col-lg-3">
+                            <!-- <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Contate-nos
+                                </h3>
+                                <ul class="address_line">
+                                    <li>84 90000-0000</li>
+                                    <li><a href="#">Demomail@gmail.Com</a></li>
+                                    <li>Endereco</li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <div class="col-xl-3  col-md-6 col-lg-3">
+                            <!-- <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Outros Servicos
+                                </h3>
+                                <ul class="links">
+                                    <li><a href="#">Pet </a></li>
+                                    <li><a href="#">Pet </a></li>
+                                    <li><a href="#">Pet </a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <div class="col-xl-3  col-md-6 col-lg-3">
+                            <!-- <div class="footer_widget">
+                                <h3 class="footer_title">
+                                    Links
+                                </h3>
+                                <ul class="links">
+                                    <li><a href="#">Sobre nós</a></li>
+                                    <li><a href="#">Política de Privacidade</a></li>
+                                    <li><a href="#">Termos de serviço</a></li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <div class="col-xl-3 col-md-6 col-lg-3 ">
+                            <!-- <div class="footer_widget">
+                                <div class="footer_logo">
+                                    <a href="#">
+                                        <h3>Adote <i class="ti-heart" aria-hidden="true"></i></h3>
+                                    </a>
+                                    
+                                </div>
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-facebook"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer>
+                <div class="container-mb my-auto">
+                    <div class="copyright text-center my-auto">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
+                        , Adotsz <i class="ti-heart" aria-hidden="true" > | </i>All rights reserved | AM
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </footer>
+        <!-- footer_end  -->
+    
+    <!-- JS here -->
+    <script th:src="@{/index/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <script th:src="@{/index/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/index/js/popper.min.js}"></script>
+    <script th:src="@{/index/js/bootstrap.min.js}"></script>
+    <script th:src="@{/index/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/index/js/isotope.pkgd.min.js}"></script>
+    <script th:src="@{/index/js/ajax-form.js}"></script>
+    <script th:src="@{/index/js/waypoints.min.js}"></script>
+    <script th:src="@{/index/js/jquery.counterup.min.js}"></script>
+    <script th:src="@{/index/js/imagesloaded.pkgd.min.js}"></script>
+    <script th:src="@{/index/js/scrollIt.js}"></script>
+    <script th:src="@{/index/js/jquery.scrollUp.min.js}"></script>
+    <script th:src="@{/index/js/wow.min.js}"></script>
+    <script th:src="@{/index/js/nice-select.min.js}"></script>
+    <script th:src="@{/index/js/jquery.slicknav.min.js}"></script>
+    <script th:src="@{/index/js/jquery.magnific-popup.min.js}"></script>
+    <script th:src="@{/index/js/plugins.js}"></script>
+    <script th:src="@{/index/js/gijgo.min.js}"></script>
+    <script th:src="@{/index/js/main.js}"></script>
+
+    <!--contact js-->
+    <script th:src="@{/index/js/contact.js}"></script>
+    <script th:src="@{/index/js/jquery.ajaxchimp.min.js}"></script>
+    <script th:src="@{/index/js/jquery.form.js}"></script>
+    <script th:src="@{/index/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/index/js/mail-script.js}"></script>
+    </body>
+</html>
