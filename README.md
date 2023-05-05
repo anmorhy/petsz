@@ -5,7 +5,7 @@
 </p>
 
 -------
-## ADOTSZ SISTEMA DE Adoção de Pets | A4MSOFT  
+## ADOTSZ sistema de adoção de Pets | A4MSOFT  
 
 ## 💻 Tecnologias
 - JAVA
